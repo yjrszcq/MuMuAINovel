@@ -1325,10 +1325,7 @@ export default function SettingsPage() {
                               </Space>
                             }
                             name="api_base_url"
-                            rules={[
-                              { required: true, message: '请输入API地址' },
-                              { type: 'url', message: '请输入有效的URL' }
-                            ]}
+                            rules={[{ required: true, message: '请输入API地址' }]}
                           >
                             <Input
                               size={isMobile ? 'middle' : 'large'}
@@ -1815,7 +1812,7 @@ export default function SettingsPage() {
                           <Input.Password size={isMobile ? 'middle' : 'large'} placeholder={selectedCoverProvider === 'mumu' ? '请输入 MuMuのAPI Key' : '输入封面图片 API Key'} autoComplete="new-password" />
                         </Form.Item>
 
-                        <Form.Item label="封面图片 API 地址" name="cover_api_base_url" rules={[{ type: 'url', message: '请输入有效的URL' }]}>
+                        <Form.Item label="封面图片 API 地址" name="cover_api_base_url">
                           {selectedCoverProvider === 'mumu' ? (
                             <Select
                               size={isMobile ? 'middle' : 'large'}

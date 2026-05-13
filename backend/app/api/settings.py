@@ -648,7 +648,7 @@ async def get_available_models(
         resolved_config = resolve_runtime_ai_config(raw_provider, api_key, api_base_url)
         provider = resolved_config["api_provider"]
         api_key = resolved_config["api_key"]
-        api_base_url = validate_public_http_url(resolved_config["api_base_url"])
+        api_base_url = resolved_config["api_base_url"].strip().rstrip("/") if resolved_config.get("api_base_url") else ""
         async with httpx.AsyncClient(timeout=10.0) as client:
             if provider == "openai" or provider == "azure" or provider == "custom":
                 # OpenAI 兼容接口获取模型列表
